@@ -8,6 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 //Then player checks for options whether its no play,ladder or snake and perform actions
 //Dice Number Rolled till winning position 100 is reached
 //Ensures that winning position not exceeds greater than 100
+//Reports the total dice count and position of player each time it rolls a dic
 
 public class SnakeLadderProblem {
 
@@ -17,6 +18,7 @@ public class SnakeLadderProblem {
 		int startPosition = 0;
 		int currentPosition = 0;
 		int winningPosition = 100;
+		int totalDiceCount = 0;
 		int noPlay = 0;
 		int ladder = 1;
 		int snake = 2;
@@ -25,6 +27,8 @@ public class SnakeLadderProblem {
 		while (currentPosition <= winningPosition) {
 			int diceNumber = randomDiceNumber();
 			int nextMove = nextMove();
+			// storing the count of dice roll
+			totalDiceCount++;
 			System.out.println("Random dice number generated is : " + diceNumber);
 			// The Player Checks for option whether its no play,ladder or snake and perform
 			if (nextMove == noPlay) {
@@ -48,7 +52,7 @@ public class SnakeLadderProblem {
 			System.out.println("The current position of a player is: " + currentPosition);
 
 		}
-
+		System.out.println("The total number of times dice was rolled is : " + totalDiceCount);
 	}
 
 	static int randomDiceNumber() {
