@@ -10,7 +10,6 @@ public class SnakeLadderProblem {
 		// Single player
 		int startPosition = 0;
 		System.out.println("The initial position of a player is : " + startPosition);
-
 	}
-
+	
 }
