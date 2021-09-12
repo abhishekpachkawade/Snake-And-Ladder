@@ -6,6 +6,7 @@ import java.util.concurrent.ThreadLocalRandom;
 // displays initial position of player 1 in the game
 //Rolls a dice and gives random number between 1 to 6
 //Then player checks for options whether its no play,ladder or snake and perform actions
+//Dice Rumber Rolled till winning position 100 is reached
 
 public class SnakeLadderProblem {
 
@@ -14,12 +15,13 @@ public class SnakeLadderProblem {
 		// Player position at start
 		int startPosition = 0;
 		int currentPosition = 0;
+		int winningPosition = 100;
 		int noPlay = 0;
 		int ladder = 1;
 		int snake = 2;
 		System.out.println("The initial position of a player is : " + startPosition);
 
-		for (int i = 1; i <= 10; i++) {
+		while (currentPosition <= winningPosition) {
 			int diceNumber = randomDiceNumber();
 			int nextMove = nextMove();
 			System.out.println("Random dice number generated is : " + diceNumber);
@@ -31,8 +33,8 @@ public class SnakeLadderProblem {
 				currentPosition = currentPosition + diceNumber;
 			} else if (nextMove == snake) {
 				System.out.println("OOPS!!! ITS a SNAKE");
-				if (currentPosition != 0) {
-					currentPosition = currentPosition - diceNumber;
+				if (currentPosition < 0) {
+					currentPosition = 0;
 				}
 			}
 			// printed in the loop to get count each time
